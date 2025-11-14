@@ -2,77 +2,85 @@
  * French translations
  */
 
-import { Dictionary } from './en';
+import { Dictionary } from "./en";
 
 export const fr: Dictionary = {
   // Navigation
   nav: {
-    home: 'Accueil',
-    about: 'À propos',
-    skills: 'Compétences',
-    experience: 'Expérience',
-    education: 'Formation',
-    projects: 'Projets',
-    contact: 'Contact',
+    home: "Accueil",
+    about: "À propos",
+    skills: "Compétences",
+    experience: "Expérience",
+    education: "Formation",
+    projects: "Projets",
+    contact: "Contact",
   },
-  
+
   // Hero Section
   hero: {
-    greeting: 'Bonjour, je suis',
-    name: 'Max Hochart', // TODO: Remplacer par votre nom
-    role: 'Développeur Web FullStack',
-    punchline: 'Je crée des applications web modernes avec des technologies de pointe. Passionné par la création d\'expériences utilisateur fluides et de solutions backend robustes.',
-    viewProjects: 'Voir mes projets',
-    contactMe: 'Me contacter',
+    greeting: "Salut, je suis",
+    name: "Max Hochart",
+    role: "Développeur Web FullStack",
+    punchline:
+      "Spécialisé en Next.js, Java Spring Boot et API REST. Je conçois, développe et déploie des applications web performantes, maintenables et prêtes à scaler.",
+    viewProjects: "Voir mes projets",
+    contactMe: "Me contacter",
   },
-  
+
   // About Section
   about: {
-    title: 'À propos de moi',
-    description: 'Je suis un développeur web fullstack spécialisé dans la création d\'expériences digitales exceptionnelles. Avec une solide base en technologies frontend et backend, je crée des applications web évolutives et performantes. Je recherche actuellement des opportunités au sein d\'ESN et d\'entreprises tech où je peux contribuer avec mes compétences et continuer à évoluer en tant que développeur.',
+    title: "À propos de moi",
+    description: `
+Je m’appelle Max Hochart, et depuis deux ans je conçois et développe des applications web qui répondent à de vrais besoins — outils internes, plateformes web, sites performants et APIs robustes.
+
+Formé au développement backend (Java Spring Boot / PHP) comme aux technologies frontend modernes (Next.js, Nuxt.js), avec une expérience du déploiement sur AWS, j’ai travaillé sur une grande variété de projets en alternance et pendant ma scolarité. Cette diversité m’a appris à comprendre un besoin, l’architecturer et le transformer en une solution fiable et évolutive.
+
+Ce qui me motive : apprendre, comprendre et créer des produits utiles. Aujourd’hui, je souhaite mettre mon expertise fullstack au service d’une équipe qui aime construire des projets solides, bien pensés — et continuer à progresser à leurs côtés.
+`,
   },
-  
+
   // Skills Section
   skills: {
-    title: 'Compétences & Technologies',
+    title: "Compétences & Technologies",
     categories: {
-      frontend: 'Frontend',
-      backend: 'Backend',
-      tools: 'Outils & Autres',
+      frontend: "Frontend",
+      backend: "Backend",
+      tools: "Outils & Autres",
     },
   },
-  
+
   // Experience Section
   experience: {
-    title: 'Expérience Professionnelle',
-    current: 'Présent',
+    title: "Expérience Professionnelle",
+    current: "Présent",
   },
-  
+
   // Education Section
   education: {
-    title: 'Formation',
+    title: "Formation",
   },
-  
+
   // Projects Section
   projects: {
-    title: 'Mes Projets',
+    title: "Mes Projets",
     filter: {
-      all: 'Tous',
+      all: "Tous",
     },
-    viewGithub: 'Voir sur GitHub',
+    viewGithub: "Voir sur GitHub",
   },
-  
+
   // Contact Section
   contact: {
-    title: 'Me Contacter',
-    description: 'Je suis actuellement à la recherche de nouvelles opportunités. Que vous soyez recruteur ou que vous souhaitiez simplement échanger, n\'hésitez pas à me contacter !',
-    linkedin: 'Me contacter sur LinkedIn',
-    github: 'Voir mon GitHub',
+    title: "Me Contacter",
+    description:
+      "Je suis actuellement à la recherche de nouvelles opportunités. Que vous soyez recruteur ou que vous souhaitiez simplement échanger, n'hésitez pas à me contacter !",
+    linkedin: "Me contacter sur LinkedIn",
+    github: "Voir mon GitHub",
   },
-  
+
   // Footer
   footer: {
-    copyright: '© {year} Tous droits réservés.',
-    builtWith: 'Créé avec Next.js & TypeScript',
+    copyright: "© {year} Tous droits réservés.",
+    builtWith: "Créé avec Next.js & TypeScript",
   },
 };
