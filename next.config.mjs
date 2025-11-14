@@ -9,7 +9,7 @@ const nextConfig = {
     ],
   },
   // Standalone build for VPS deployment
-  // output: 'standalone',
+  output: 'standalone',
 };
 
 export default nextConfig;
