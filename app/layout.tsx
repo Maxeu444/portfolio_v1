@@ -8,12 +8,12 @@ import { Providers } from '@/components/common/Providers';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Your Name - Web FullStack Developer',
+  title: 'Max Hochart - Web FullStack Developer',
   description: 'Portfolio of a fullstack web developer specializing in Next.js, React, TypeScript, and modern web technologies.',
   keywords: ['fullstack developer', 'web developer', 'Next.js', 'React', 'TypeScript', 'portfolio'],
-  authors: [{ name: 'Your Name' }],
+  authors: [{ name: 'Max Hochart' }],
   openGraph: {
-    title: 'Your Name - Web FullStack Developer',
+    title: 'Max Hochart - Web FullStack Developer',
     description: 'Portfolio of a fullstack web developer',
     type: 'website',
   },
