@@ -5,19 +5,12 @@
 
 import type { Metadata } from 'next';
 import { Providers } from '@/components/common/Providers';
+import { DynamicMetadata } from '@/components/common/DynamicMetadata';
+import { metadataFr } from '@/lib/metadata-config';
 import './globals.css';
 
-export const metadata: Metadata = {
-  title: 'Max Hochart - Web FullStack Developer',
-  description: 'Portfolio of a fullstack web developer specializing in Next.js, React, TypeScript, and modern web technologies.',
-  keywords: ['fullstack developer', 'web developer', 'Next.js', 'React', 'TypeScript', 'portfolio'],
-  authors: [{ name: 'Max Hochart' }],
-  openGraph: {
-    title: 'Max Hochart - Web FullStack Developer',
-    description: 'Portfolio of a fullstack web developer',
-    type: 'website',
-  },
-};
+// Default metadata (French) - will be updated dynamically based on user's language selection
+export const metadata: Metadata = metadataFr;
 
 export default function RootLayout({
   children,
@@ -30,9 +23,18 @@ export default function RootLayout({
         {/* Satoshi Font - TODO: Add actual Satoshi font files to public/fonts/ */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.cdnfonts.com" />
+        
+        {/* Hreflang tags for multilingual SEO */}
+        <link rel="alternate" hrefLang="fr" href="https://max-hochart.dev/fr" />
+        <link rel="alternate" hrefLang="en" href="https://max-hochart.dev/en" />
+        <link rel="alternate" hrefLang="x-default" href="https://max-hochart.dev/fr" />
+        
+        {/* Canonical URL */}
+        <link rel="canonical" href="https://max-hochart.dev" />
       </head>
       <body className="font-satoshi antialiased">
         <Providers>
+          <DynamicMetadata />
           {children}
         </Providers>
       </body>
