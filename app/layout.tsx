@@ -25,12 +25,12 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.cdnfonts.com" />
         
         {/* Hreflang tags for multilingual SEO */}
-        <link rel="alternate" hrefLang="fr" href="https://max-hochart.dev/fr" />
-        <link rel="alternate" hrefLang="en" href="https://max-hochart.dev/en" />
-        <link rel="alternate" hrefLang="x-default" href="https://max-hochart.dev/fr" />
+        <link rel="alternate" hrefLang="fr" href="https://maxhochart.fr" />
+        <link rel="alternate" hrefLang="en" href="https://maxhochart.fr/en" />
+        <link rel="alternate" hrefLang="x-default" href="https://maxhochart.fr" />
         
         {/* Canonical URL */}
-        <link rel="canonical" href="https://max-hochart.dev" />
+        <link rel="canonical" href="https://maxhochart.fr" />
       </head>
       <body className="font-satoshi antialiased">
         <Providers>
