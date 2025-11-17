@@ -1,3 +1,5 @@
+Bienvenue sur le repository de mon portfolio, accessible et visible sur maxhochart.fr
+
 ## 📋 Prérequis
 
 - Node.js 18+ et npm
