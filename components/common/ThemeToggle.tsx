@@ -1,16 +1,13 @@
 'use client';
 
-/**
- * Theme toggle component
- * Switches between light and dark mode
- */
-
 import { Moon, Sun } from 'lucide-react';
 import { useTheme } from '@/lib/theme-provider';
 import { Button } from '@/components/ui/button';
 
 export function ThemeToggle() {
-  const { theme, toggleTheme } = useTheme();
+  const { theme, toggleTheme, isThemeLocked } = useTheme();
+
+  if (isThemeLocked) return null;
 
   return (
     <Button

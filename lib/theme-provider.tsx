@@ -1,10 +1,5 @@
 'use client';
 
-/**
- * Theme provider for dark/light mode
- * Manages theme state and persistence
- */
-
 import React, { createContext, useContext, useEffect, useState } from 'react';
 
 type Theme = 'light' | 'dark';
@@ -12,12 +7,20 @@ type Theme = 'light' | 'dark';
 interface ThemeContextType {
   theme: Theme;
   toggleTheme: () => void;
+  isThemeLocked: boolean;
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
+const isBeforeJan2026 = () => {
+  const targetDate = new Date('2026-02-01T00:00:00');
+  return new Date() < targetDate;
+};
+
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<Theme>(() => {
+    if (isBeforeJan2026()) return 'dark';
+    
     if (typeof window === 'undefined') return 'light';
     const savedTheme = localStorage.getItem('theme') as Theme | null;
     if (savedTheme) {
@@ -31,16 +34,20 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     const root = document.documentElement;
     root.classList.remove('light', 'dark');
     root.classList.add(theme);
-    localStorage.setItem('theme', theme);
+    if (!isBeforeJan2026()) {
+      localStorage.setItem('theme', theme);
+    }
   }, [theme]);
 
   const toggleTheme = () => {
+    if (isBeforeJan2026()) return;
     setTheme((prev) => (prev === 'light' ? 'dark' : 'light'));
   };
 
-  // Prevent flash of wrong theme - render children immediately but theme won't work until mounted
+  const isThemeLocked = isBeforeJan2026();
+
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <ThemeContext.Provider value={{ theme, toggleTheme, isThemeLocked }}>
       {children}
     </ThemeContext.Provider>
   );
