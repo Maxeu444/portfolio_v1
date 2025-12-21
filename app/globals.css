@@ -19,25 +19,26 @@
 
 @layer base {
   :root {
-    --background: 44 45% 91%; /* #f2e8cf beige clair */
-    --foreground: 121 31% 20%; /* #386641 vert foncé */
-    --card: 0 0% 100%;
-    --card-foreground: 121 31% 20%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 121 31% 20%;
-    --primary: 121 31% 20%; /* #386641 vert foncé */
-    --primary-foreground: 44 45% 91%; /* #f2e8cf beige */
-    --secondary: 44 45% 85%; /* beige plus foncé */
-    --secondary-foreground: 121 31% 20%;
-    --muted: 44 30% 85%;
-    --muted-foreground: 121 20% 35%;
-    --accent: 121 40% 30%; /* vert accent */
+    /* Default theme set to dark until January 2026 */
+    --background: 121 31% 12%; /* vert très foncé */
+    --foreground: 44 45% 91%; /* beige clair */
+    --card: 121 25% 15%;
+    --card-foreground: 44 45% 91%;
+    --popover: 121 25% 15%;
+    --popover-foreground: 44 45% 91%;
+    --primary: 121 40% 35%; /* vert moyen */
+    --primary-foreground: 44 45% 91%;
+    --secondary: 121 20% 20%;
+    --secondary-foreground: 44 45% 91%;
+    --muted: 121 20% 20%;
+    --muted-foreground: 44 25% 70%;
+    --accent: 121 40% 30%;
     --accent-foreground: 44 45% 91%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 44 30% 80%;
-    --input: 44 30% 80%;
-    --ring: 121 31% 20%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 44 45% 91%;
+    --border: 121 20% 25%;
+    --input: 121 20% 25%;
+    --ring: 121 40% 35%;
     --radius: 0.5rem;
   }
 
