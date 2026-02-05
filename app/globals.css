@@ -19,49 +19,50 @@
 
 @layer base {
   :root {
-    /* Default theme set to dark until January 2026 */
-    --background: 121 31% 12%; /* vert très foncé */
-    --foreground: 44 45% 91%; /* beige clair */
-    --card: 121 25% 15%;
-    --card-foreground: 44 45% 91%;
-    --popover: 121 25% 15%;
-    --popover-foreground: 44 45% 91%;
-    --primary: 121 40% 35%; /* vert moyen */
+    /* Light theme (default) */
+    --background: 44 45% 91%; /* beige */
+    --foreground: 121 31% 12%; /* green ink */
+    --card: 44 45% 96%;
+    --card-foreground: 121 31% 12%;
+    --popover: 44 45% 96%;
+    --popover-foreground: 121 31% 12%;
+    --primary: 121 40% 35%; /* green */
     --primary-foreground: 44 45% 91%;
-    --secondary: 121 20% 20%;
-    --secondary-foreground: 44 45% 91%;
-    --muted: 121 20% 20%;
-    --muted-foreground: 44 25% 70%;
-    --accent: 121 40% 30%;
+    --secondary: 44 30% 86%;
+    --secondary-foreground: 121 31% 12%;
+    --muted: 44 28% 88%;
+    --muted-foreground: 121 16% 28%;
+    --accent: 121 35% 40%;
     --accent-foreground: 44 45% 91%;
-    --destructive: 0 62.8% 30.6%;
+    --destructive: 0 72% 42%;
     --destructive-foreground: 44 45% 91%;
-    --border: 121 20% 25%;
-    --input: 121 20% 25%;
+    --border: 121 20% 78%;
+    --input: 121 20% 78%;
     --ring: 121 40% 35%;
     --radius: 0.5rem;
   }
 
+  :root[data-theme='dark'],
   .dark {
-    --background: 121 31% 12%; /* vert très foncé */
-    --foreground: 44 45% 91%; /* beige clair */
+    --background: 121 31% 12%; /* deep green */
+    --foreground: 44 45% 91%; /* beige */
     --card: 121 25% 15%;
     --card-foreground: 44 45% 91%;
     --popover: 121 25% 15%;
     --popover-foreground: 44 45% 91%;
-    --primary: 121 40% 35%; /* vert moyen */
+    --primary: 121 40% 40%;
     --primary-foreground: 44 45% 91%;
     --secondary: 121 20% 20%;
     --secondary-foreground: 44 45% 91%;
-    --muted: 121 20% 20%;
+    --muted: 121 18% 20%;
     --muted-foreground: 44 25% 70%;
-    --accent: 121 40% 30%;
+    --accent: 121 35% 30%;
     --accent-foreground: 44 45% 91%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 44 45% 91%;
     --border: 121 20% 25%;
     --input: 121 20% 25%;
-    --ring: 121 40% 35%;
+    --ring: 121 40% 40%;
   }
 }
 
@@ -71,6 +72,11 @@
   }
   body {
     @apply bg-background text-foreground;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  *, *::before, *::after {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
   }
 }
 
