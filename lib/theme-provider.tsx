@@ -7,47 +7,41 @@ type Theme = 'light' | 'dark';
 interface ThemeContextType {
   theme: Theme;
   toggleTheme: () => void;
-  isThemeLocked: boolean;
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
-const isBeforeJan2026 = () => {
-  const targetDate = new Date('2026-02-01T00:00:00');
-  return new Date() < targetDate;
-};
-
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<Theme>(() => {
-    if (isBeforeJan2026()) return 'dark';
-    
-    if (typeof window === 'undefined') return 'light';
+  const [theme, setTheme] = useState<Theme>('light');
+
+  useEffect(() => {
     const savedTheme = localStorage.getItem('theme') as Theme | null;
     if (savedTheme) {
-      return savedTheme;
+      setTheme(savedTheme);
+      return;
     }
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    return prefersDark ? 'dark' : 'light';
-  });
+    setTheme(prefersDark ? 'dark' : 'light');
+  }, []);
 
   useEffect(() => {
     const root = document.documentElement;
+    const body = document.body;
     root.classList.remove('light', 'dark');
+    body.classList.remove('light', 'dark');
     root.classList.add(theme);
-    if (!isBeforeJan2026()) {
-      localStorage.setItem('theme', theme);
-    }
+    body.classList.add(theme);
+    root.setAttribute('data-theme', theme);
+    root.style.colorScheme = theme;
+    localStorage.setItem('theme', theme);
   }, [theme]);
 
   const toggleTheme = () => {
-    if (isBeforeJan2026()) return;
     setTheme((prev) => (prev === 'light' ? 'dark' : 'light'));
   };
 
-  const isThemeLocked = isBeforeJan2026();
-
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme, isThemeLocked }}>
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
       {children}
     </ThemeContext.Provider>
   );
