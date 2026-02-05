@@ -5,7 +5,7 @@
  * Display portfolio projects with filtering capabilities
  */
 
-import { useState, useMemo } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Github, ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useLanguage } from '@/lib/language-provider';
@@ -22,16 +22,6 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog';
 
-// Fisher-Yates shuffle algorithm
-function shuffleArray<T>(array: T[]): T[] {
-  const shuffled = [...array];
-  for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-  }
-  return shuffled;
-}
-
 const PROJECTS_PER_PAGE = 6;
 
 export function ProjectsSection() {
@@ -41,17 +31,14 @@ export function ProjectsSection() {
   const [teamFilter, setTeamFilter] = useState<string>('All');
   const [currentPage, setCurrentPage] = useState<number>(1);
 
-  // Shuffle projects randomly on initial load
-  const shuffledProjects = useMemo(() => shuffleArray(projects), []);
-
   // Extract unique technologies from all projects
   const allTechnologies = Array.from(
-    new Set(shuffledProjects.flatMap((project) => project.stack))
+    new Set(projects.flatMap((project) => project.stack))
   );
   const filters = ['All', ...allTechnologies];
 
   // Filter projects based on selected filters
-  const filteredProjects = shuffledProjects.filter((project) => {
+  const filteredProjects = projects.filter((project) => {
     const techMatch = selectedFilter === 'All' || project.stack.includes(selectedFilter);
     const typeMatch = typeFilter === 'All' || project.type === typeFilter;
     const teamMatch = teamFilter === 'All' || project.teamType === teamFilter;
